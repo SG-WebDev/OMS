@@ -1,10 +1,10 @@
 const sql = require('mssql')
 const config = {
-  user: "dbTest",
-  password: "test",
-  server: "SG-PC",
+  user: "", // TO CHANGE (SQL SERVER AUTH USER)
+  password: "", // TO CHANGE
+  server: "", // TO CHANGE (SQL SERVER NAME)
   port: 1433,
-  database: "Northwind",
+  database: "", // TO CHANGE (SQL DATABASENAME)
 }
 
 sql.connect(config).then(() => {

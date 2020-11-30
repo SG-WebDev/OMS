@@ -1,4 +1,4 @@
-import {sql, config, router} from "./db";
+import {sql, config, router} from "../db";
 
 let output = null;
 sql.connect(config).then(() => {

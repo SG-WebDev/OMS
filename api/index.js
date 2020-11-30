@@ -9,7 +9,7 @@ if (require.main === module) {
 }
 
 //FILES REGISTRATION
-const clients = require('./clients')
+const clients = require('./client/clients')
 app.use(clients)
 //------------------------------------------
 

@@ -35,7 +35,7 @@ export default {
   build: {
   },
 
-  serverMiddleware: [
-    { path: '/api', handler: '~/api/db-config.js' },
-  ]
+  serverMiddleware: {
+    '/api': '~/api'
+  }
 }

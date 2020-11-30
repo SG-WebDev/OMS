@@ -24,11 +24,35 @@
         </a>
       </div>
     </div>
+    <div>
+      <button class="button" @click="runTest">RUN</button>
+      {{records ? records : "No Data" }}
+    </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      records: null
+    }
+  },
+  methods: {
+     fetchData() {
+       fetch('/api/clients')
+         .then(res => res.json())
+         .then(data => {
+        console.log(data.recordset);
+        this.records = data.recordset;
+      })
+    },
+    runTest() {
+      this.fetchData();
+    }
+  },
+
+}
 </script>
 
 <style>

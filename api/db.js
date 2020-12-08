@@ -6,7 +6,7 @@ const config = {
   password: "", // TO CHANGE
   server: "", // TO CHANGE (SQL SERVER NAME)
   port: 1433,
-  database: "", // TO CHANGE (SQL DATABASENAME)
+  database: "oms", // TO CHANGE (SQL DATABASENAME)
 }
 
 module.exports = {sql, config, router}

@@ -2,7 +2,7 @@ import {sql, config, router} from "../db";
 
 let output = null;
 sql.connect(config).then(() => {
-  return sql.query(`select * from Region`)
+  return sql.query(`select * from Client`)
 }).then(result => {
   output = result;
   return result;

@@ -6,7 +6,7 @@
     </div>
     <div class="formItem">
       <label class="label" for="desc">Opis:</label>
-      <textarea class="input" id="desc" placeholder="Wpisz Opis"></textarea>
+      <textarea class="input input--textarea" id="desc" placeholder="Wpisz Opis"></textarea>
     </div>
     <div class="formItem">
       <label class="label" for="price">Kwota (PLN):</label>

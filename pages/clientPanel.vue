@@ -1,6 +1,6 @@
 <template>
   <div v-if="showPanel" class="content">
-    content
+    <Navbar userType="client"/>
   </div>
   <div v-else class="form">
     <div class="formItem">
@@ -12,21 +12,35 @@
       <input class="input" id="password" type="password" placeholder="Wpisz hasło">
     </div>
     <div class="formItem formItem--submit">
-      <button class="button button--alt">Zaloguj</button>
+      <button class="button button--alt" @click="login()">Zaloguj</button>
     </div>
   </div>
 </template>
 
 <script>
+import Navbar from "@/components/Navbar";
 export default {
-name: "clientPanel",
+  name: "clientPanel",
+  components: {Navbar},
   data() {
     return {
-      showPanel: false
+      showPanel: false,
     }
   },
   methods: {
-
+    login() {
+      localStorage.setItem("logged", "true");
+      this.showPanel = true;
+    }
+  },
+  mounted() {
+    let logged = localStorage.getItem("logged");
+    if(logged === "true") {
+      this.showPanel = true;
+    }
+    else {
+      this.showPanel = false;
+    }
   }
 }
 </script>

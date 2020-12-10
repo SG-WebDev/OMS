@@ -7,6 +7,7 @@
 :root {
   --mainColor: #4D6179;
   --mainHoverColor: #607793;
+  --blackColor: #222222;
 }
 
 html {
@@ -35,6 +36,10 @@ html {
   margin: 0;
 }
 
+.content {
+  display: flex;
+  min-height: 100vh;
+}
 .buttonPanel {
   margin: 25px;
 }
@@ -91,7 +96,7 @@ html {
   display: block;
   font-weight: 200;
   font-size: 100px;
-  color: #222222;
+  color: var(--blackColor);
   letter-spacing: 1px;
   line-height: 1;
 }
@@ -100,7 +105,7 @@ html {
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
-  color: #222222;
+  color: var(--blackColor);
 }
 
 .form {
@@ -131,11 +136,47 @@ html {
   border-radius: 4px;
   padding: 12px;
   outline: none;
-  border: 2px solid #222222;
+  border: 2px solid var(--blackColor);
+}
+.input--textarea {
+  min-height: 200px;
 }
 
 .input:focus {
   border-color: var(--mainColor);
+}
+
+.nav {
+  background-color: var(--mainColor);
+  padding: 25px 15px;
+}
+
+.nav__List {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.nav__Item {
+  list-style: none;
+  padding: 25px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #ffffff;
+}
+
+.nav__Item:last-child {
+  border-color: transparent;
+}
+
+.nav__Item a {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.nav__Item a:hover , .nav__Item a:focus {
+  color: var(--blackColor);
+  outline: 0;
 }
 
 </style>

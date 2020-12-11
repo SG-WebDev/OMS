@@ -12,5 +12,8 @@ if (require.main === module) {
 const clients = require('./client/clients')
 app.use(clients)
 //------------------------------------------
+const offers = require('./offer/offers')
+app.use(offers)
+//------------------------------------------
 
 module.exports = app

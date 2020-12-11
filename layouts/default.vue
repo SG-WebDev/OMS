@@ -80,6 +80,7 @@ html {
 
 .titlePanel {
   margin: 50px 25px;
+  align-self: center;
 }
 
 .title {
@@ -96,12 +97,14 @@ html {
   display: block;
   font-weight: 200;
   font-size: 100px;
-  color: var(--blackColor);
+  color: var(--mainColor);
   letter-spacing: 1px;
   line-height: 1;
+  text-align: center;
 }
 
 .subtitle {
+  text-align: center;
   font-size: 64px;
   font-weight: 400;
   line-height: 1;
@@ -149,6 +152,7 @@ html {
 .nav {
   background-color: var(--mainColor);
   padding: 25px 15px;
+  flex-basis: 250px;
 }
 
 .nav__List {
@@ -177,6 +181,54 @@ html {
 .nav__Item a:hover , .nav__Item a:focus {
   color: var(--blackColor);
   outline: 0;
+}
+
+.section {
+  padding: 50px;
+  flex-grow: 1;
+  max-height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #aaaaaa transparent;
+}
+.section::-webkit-scrollbar {
+  width: 6px;
+}
+.section::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.section::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+}
+
+.offer {
+  margin: 15px;
+  padding: 25px 15px;
+  display: flex;
+  border-bottom: 1px solid var(--mainHoverColor);
+}
+
+.offer__Content {
+
+}
+
+.offer__Title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--blackColor);
+  margin: 8px 0;
+}
+
+.offer__Desc {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.offer__Price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--mainColor);
+  margin: 8px 0;
 }
 
 </style>

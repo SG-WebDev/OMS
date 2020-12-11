@@ -1,7 +1,12 @@
 <template>
-  <div v-if="showPanel" class="content">
-    <Navbar userType="client"/>
-  </div>
+  <main v-if="showPanel" class="content">
+    <Navbar user-type="client"/>
+    <section class="section">
+      <div class="titlePanel">
+        <h1 class="title">Witamy w panelu klienta!</h1>
+      </div>
+    </section>
+  </main>
   <div v-else class="form">
     <div class="formItem">
       <label class="label" for="login">Login:</label>
@@ -19,9 +24,10 @@
 
 <script>
 import Navbar from "@/components/Navbar";
+import OfferList from "@/pages/offerList";
 export default {
   name: "clientPanel",
-  components: {Navbar},
+  components: {OfferList, Navbar},
   data() {
     return {
       showPanel: false,

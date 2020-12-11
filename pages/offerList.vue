@@ -1,27 +1,33 @@
 <template>
-
+  <main class="content">
+    <Navbar userType="client"/>
+    <section class="section">
+      <Offer v-for="offer in offers" :key="offer.offerID" :title="offer.title" :description="offer.description" :price="offer.price"/>
+    </section>
+  </main>
 </template>
 <script>
+import Offer from "@/pages/offer";
 export default {
   name: "offerList",
+  components: {Offer},
   data() {
     return {
-      records: null
+      offers: []
     }
   },
   methods: {
     fetchData() {
-      fetch('/api/clients')
+      fetch('/api/offers')
         .then(res => res.json())
         .then(data => {
-          console.log(data.recordset);
-          this.records = data.recordset;
+          this.offers = data.recordset;
         })
     },
-    runTest() {
-      this.fetchData();
-    }
   },
+  mounted() {
+    this.fetchData();
+  }
 
 }
 </script>

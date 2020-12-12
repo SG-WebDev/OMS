@@ -163,7 +163,6 @@ html {
 
 .nav__Item {
   list-style: none;
-  padding: 25px 0;
   cursor: pointer;
   border-bottom: 1px solid #ffffff;
 }
@@ -172,13 +171,18 @@ html {
   border-color: transparent;
 }
 
-.nav__Item a {
+.nav__ItemLink {
   text-decoration: none;
   color: #ffffff;
-  padding: 10px;
+  padding: 20px 10px;
+  display: block;
 }
 
-.nav__Item a:hover , .nav__Item a:focus {
+.nav__ItemLink--active {
+  background-color: var(--mainHoverColor);
+}
+
+.nav__ItemLink:hover , .nav__ItemLink:focus {
   color: var(--blackColor);
   outline: 0;
 }
@@ -187,6 +191,7 @@ html {
   padding: 50px;
   flex-grow: 1;
   max-height: 100vh;
+  max-width: calc(100vw - 250px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #aaaaaa transparent;

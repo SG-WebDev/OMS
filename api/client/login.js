@@ -2,7 +2,7 @@ import {sql, config, router} from "../db";
 
 let output = null;
 sql.connect(config).then(() => {
-  return sql.query(`select * from Client`)
+  return sql.query(`SELECT * FROM Client WHERE email = ${email} AND password = ${password}`)
 }).then(result => {
   output = result;
   return result;
@@ -10,7 +10,7 @@ sql.connect(config).then(() => {
   console.warn("Nie można pobrać danych z bazy")
 })
 
-router.use('/clients', (req, res) => {
+router.use('/client/login', (req, res) => {
   res.json(output)
 })
 

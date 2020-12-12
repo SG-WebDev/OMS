@@ -2,25 +2,25 @@
   <nav class="nav">
     <ul class="nav__List">
       <li class="nav__Item">
-        <NuxtLink :to="panelURL">Twój panel</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" :to="panelURL">Twój panel</NuxtLink>
       </li>
       <li class="nav__Item">
-        <NuxtLink :to="profileURL">Twój profil</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" :to="profileURL">Twój profil</NuxtLink>
       </li>
       <li class="nav__Item">
-        <NuxtLink to="/offerList">Oferty w serwisie</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/offerList">Oferty w serwisie</NuxtLink>
       </li>
       <li v-if="userType === 'client'" class="nav__Item">
-        <NuxtLink to="/addOffer">Utwórz oferte</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/addOffer">Utwórz oferte</NuxtLink>
       </li>
       <li v-if="userType === 'client'" class="nav__Item">
-        <NuxtLink to="">Wystawione oferty</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/index">Wystawione oferty</NuxtLink>
       </li>
       <li v-if="userType === 'contractor'" class="nav__Item">
-        <NuxtLink to="">Podjęte oferty</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="">Podjęte oferty</NuxtLink>
       </li>
       <li class="nav__Item" @click="logout()">
-        <a>Wyloguj</a>
+        <a class="nav__ItemLink">Wyloguj</a>
       </li>
     </ul>
   </nav>

@@ -9,12 +9,12 @@
   </main>
   <div v-else class="form">
     <div class="formItem">
-      <label class="label" for="login">Login:</label>
-      <input class="input" id="login" type="text" placeholder="Wpisz login">
+      <label class="label" for="login">Email:</label>
+      <input v-model="email" class="input" id="login" type="email" placeholder="Wpisz e-mail">
     </div>
     <div class="formItem">
       <label class="label" for="password">Hasło:</label>
-      <input class="input" id="password" type="password" placeholder="Wpisz hasło">
+      <input v-model="password" class="input" id="password" type="password" placeholder="Wpisz hasło">
     </div>
     <div class="formItem formItem--submit">
       <button class="button button--alt" @click="login()">Zaloguj</button>
@@ -31,12 +31,29 @@ export default {
   data() {
     return {
       showPanel: false,
+      email: null,
+      password: null,
     }
   },
   methods: {
     login() {
-      localStorage.setItem("logged", "true");
-      this.showPanel = true;
+      if(this.email && this.password) {
+        fetch('/api/client/login', {
+          email: this.email,
+          password: this.password
+        })
+          .then(res => res.json())
+          .then(data => {
+            const clientID = data.recordset[0].clientID;
+            localStorage.setItem("clientID" , clientID);
+            localStorage.setItem("userType", "client");
+            localStorage.setItem("logged", "true");
+            this.showPanel = true;
+          })
+      }
+      else {
+        alert("Wypełnij dane");
+      }
     }
   },
   mounted() {

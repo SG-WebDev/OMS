@@ -9,11 +9,15 @@ if (require.main === module) {
 }
 
 //FILES REGISTRATION
-const clients = require('./client/clients')
-app.use(clients)
 //------------------------------------------
 const offers = require('./offer/offers')
 app.use(offers)
+//------------------------------------------
+const contractorLogin = require('./contractor/login')
+app.use(contractorLogin)
+//------------------------------------------
+const clientLogin = require('./client/login')
+app.use(clientLogin)
 //------------------------------------------
 
 module.exports = app

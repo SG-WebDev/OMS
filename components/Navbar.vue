@@ -17,7 +17,7 @@
         <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/index">Wystawione oferty</NuxtLink>
       </li>
       <li v-if="userType === 'contractor'" class="nav__Item">
-        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="">Podjęte oferty</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/index">Podjęte oferty</NuxtLink>
       </li>
       <li class="nav__Item" @click="logout()">
         <a class="nav__ItemLink">Wyloguj</a>
@@ -41,6 +41,9 @@ export default {
   methods: {
     logout() {
       localStorage.setItem("logged", "false");
+      localStorage.removeItem("clientID");
+      localStorage.removeItem("contractorID");
+      localStorage.removeItem("userType");
       this.$router.push({ name: "index" });
     }
   }

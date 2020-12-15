@@ -8,6 +8,9 @@ if (require.main === module) {
   })
 }
 
+//JSON middleware.
+app.use(express.json());
+
 //FILES REGISTRATION
 //------------------------------------------
 const offers = require('./offer/offers')

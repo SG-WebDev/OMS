@@ -38,12 +38,21 @@ export default {
   methods: {
     login() {
       if(this.email && this.password) {
-        fetch('/api/client/login', {
+        const data = {
           email: this.email,
           password: this.password
+        }
+        console.log(data)
+        fetch('/api/client/login', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
         })
           .then(res => res.json())
           .then(data => {
+            console.log(data)
             const clientID = data.recordset[0].clientID;
             localStorage.setItem("clientID" , clientID);
             localStorage.setItem("userType", "client");

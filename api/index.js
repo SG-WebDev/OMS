@@ -22,5 +22,11 @@ app.use(contractorLogin)
 const clientLogin = require('./client/login')
 app.use(clientLogin)
 //------------------------------------------
+const contractorOffers = require('./contractor/offers')
+app.use(contractorOffers)
+//------------------------------------------
+const clientOffers = require('./client/offers')
+app.use(clientOffers)
+//------------------------------------------
 
 module.exports = app

@@ -42,7 +42,6 @@ export default {
           email: this.email,
           password: this.password
         }
-        console.log(data)
         fetch('/api/client/login', {
           method: "POST",
           headers: {

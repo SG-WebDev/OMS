@@ -14,10 +14,10 @@
         <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/addOffer">Utwórz oferte</NuxtLink>
       </li>
       <li v-if="userType === 'client'" class="nav__Item">
-        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/index">Wystawione oferty</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/clientOffers">Wystawione oferty</NuxtLink>
       </li>
       <li v-if="userType === 'contractor'" class="nav__Item">
-        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/index">Podjęte oferty</NuxtLink>
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/contractorOffers">Podjęte oferty</NuxtLink>
       </li>
       <li class="nav__Item" @click="logout()">
         <a class="nav__ItemLink">Wyloguj</a>

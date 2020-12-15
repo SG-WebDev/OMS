@@ -42,7 +42,6 @@ export default {
           email: this.email,
           password: this.password
         }
-        console.log(data)
         fetch('/api/contractor/login', {
           method: "POST",
           headers: {

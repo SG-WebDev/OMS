@@ -19,12 +19,14 @@ export default {
   },
   computed: {
     userType() {
-      return localStorage.getItem("userType");
+      if(localStorage) {
+        return localStorage.getItem("userType");
+      }
     }
   },
   methods: {
     fetchData() {
-      fetch('/api/offers')
+      fetch('/api/offers/list')
         .then(res => res.json())
         .then(data => {
           this.offers = data.recordset;

@@ -51,12 +51,17 @@ export default {
         })
           .then(res => res.json())
           .then(data => {
-            console.log(data)
-            const contractorID = data.recordset[0].contractorID;
-            localStorage.setItem("contractorID" , contractorID);
-            localStorage.setItem("userType", "contractor");
-            localStorage.setItem("logged", "true");
-            this.showPanel = true;
+            if(data.recordset[0]) {
+              console.log(data)
+              const contractorID = data.recordset[0].contractorID;
+              localStorage.setItem("contractorID" , contractorID);
+              localStorage.setItem("userType", "contractor");
+              localStorage.setItem("logged", "true");
+              this.showPanel = true;
+            }
+            else {
+              alert("Wpisz poprawne dane!");
+            }
           })
       }
       else {

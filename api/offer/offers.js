@@ -1,13 +1,13 @@
 import {sql, config, router} from "../db";
 
-router.use('/offers', (req, res) => {
+router.use('/offers/list', (req, res) => {
   sql.connect(config).then(() => {
-    return sql.query(`SELECT * FROM Offer`)
+    return sql.query(`SELECT * FROM Offer WHERE status = 'open'`)
   }).then(result => {
-    console.info(result)
-    res.send(result)
+    res.send(result);
   }).catch(err => {
-    console.warn("Nie można pobrać danych z bazy")
+    console.warn(err)
+    res.send(err);
   })
 
 })

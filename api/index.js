@@ -16,6 +16,9 @@ app.use(express.json());
 const offers = require('./offer/offers')
 app.use(offers)
 //------------------------------------------
+const offerAdd = require('./offer/add')
+app.use(offerAdd)
+//------------------------------------------
 const contractorLogin = require('./contractor/login')
 app.use(contractorLogin)
 //------------------------------------------

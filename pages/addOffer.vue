@@ -1,22 +1,22 @@
 <template>
   <main class="content">
-  <Navbar :user-type="userType"/>
+    <Navbar :user-type="userType"/>
     <section class="section">
       <div class="form">
         <div class="formItem">
           <label class="label" for="title">Tytuł:</label>
-          <input class="input" id="title" type="text" placeholder="Wpisz tytuł">
+          <input v-model="title" class="input" id="title" type="text" placeholder="Wpisz tytuł">
         </div>
         <div class="formItem">
           <label class="label" for="desc">Opis:</label>
-          <textarea class="input input--textarea" id="desc" placeholder="Wpisz Opis"></textarea>
+          <textarea v-model="desc" class="input input--textarea" id="desc" placeholder="Wpisz Opis"></textarea>
         </div>
         <div class="formItem">
           <label class="label" for="price">Kwota (PLN):</label>
-          <input class="input" id="price" type="number" placeholder="Wpisz kwote">
+          <input v-model="price" class="input" id="price" type="number" placeholder="Wpisz kwote">
         </div>
         <div class="formItem formItem--submit">
-          <button class="button button--alt">Dodaj ogłoszenie</button>
+          <button class="button button--alt" @click="addOffer()">Dodaj ogłoszenie</button>
         </div>
       </div>
     </section>
@@ -26,9 +26,52 @@
 <script>
 export default {
 name: "addOffer",
+  data() {
+    return {
+      title: null,
+      desc: null,
+      price: null
+    }
+  },
   computed: {
-   userType() {
-     return localStorage.getItem("userType");
+    userType() {
+      if(localStorage) {
+        return localStorage.getItem("userType");
+      }
+    }
+  },
+  methods: {
+    addOffer() {
+      if(this.title && this.desc && this.price) {
+        const clientID = localStorage.getItem("clientID");
+        const data = {
+          clientID: clientID,
+          title: this.title,
+          description: this.desc,
+          price: this.price,
+        }
+        fetch('/api/offers/add', {
+          method: "PUT",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        })
+          .then(res => res.json())
+          .then(data => {
+            if(data) {
+              console.log(data);
+              alert("Oferta została dodana! Sprawdź w zakładce 'Wystawione oferty'");
+            }
+            else {
+              console.log(data);
+              alert("Oferta nie została dodana. Coś poszło nie tak!");
+            }
+          })
+      }
+      else {
+        alert("Wypełnij wymagane dane");
+      }
     }
   }
 }

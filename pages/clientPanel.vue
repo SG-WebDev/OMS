@@ -51,12 +51,17 @@ export default {
         })
           .then(res => res.json())
           .then(data => {
-            console.log(data)
-            const clientID = data.recordset[0].clientID;
-            localStorage.setItem("clientID" , clientID);
-            localStorage.setItem("userType", "client");
-            localStorage.setItem("logged", "true");
-            this.showPanel = true;
+            if(data.recordset[0]) {
+              console.log(data)
+              const clientID = data.recordset[0].clientID;
+              localStorage.setItem("clientID" , clientID);
+              localStorage.setItem("userType", "client");
+              localStorage.setItem("logged", "true");
+              this.showPanel = true;
+            }
+            else {
+              alert("Wpisz poprawne dane!");
+            }
           })
       }
       else {

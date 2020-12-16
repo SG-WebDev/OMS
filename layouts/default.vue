@@ -236,4 +236,9 @@ html {
   margin: 8px 0;
 }
 
+.error {
+  font-size: 20px;
+  color: #d64541;
+}
+
 </style>

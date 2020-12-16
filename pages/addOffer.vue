@@ -2,6 +2,9 @@
   <main class="content">
     <Navbar :user-type="userType"/>
     <section class="section">
+      <div v-if="error" class="error">
+        Komunikat błędu: {{error}}
+      </div>
       <div class="form">
         <div class="formItem">
           <label class="label" for="title">Tytuł:</label>
@@ -30,7 +33,8 @@ name: "addOffer",
     return {
       title: null,
       desc: null,
-      price: null
+      price: null,
+      error: null
     }
   },
   computed: {
@@ -59,13 +63,13 @@ name: "addOffer",
         })
           .then(res => res.json())
           .then(data => {
-            if(data) {
+            if(data.success) {
               console.log(data);
               alert("Oferta została dodana! Sprawdź w zakładce 'Wystawione oferty'");
             }
             else {
               console.log(data);
-              alert("Oferta nie została dodana. Coś poszło nie tak!");
+              this.error = data.error.originalError.info.message;
             }
           })
       }

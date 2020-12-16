@@ -9,10 +9,10 @@ router.put('/offers/add', (req, res) => {
     return sql.query(`INSERT INTO Offer (clientID, price, title, description)
     VALUES('${clientID}', '${price}', '${title}', '${description}')`)
   }).then(result => {
-    res.send(result);
+    res.send({success:result});
   }).catch(err => {
     console.warn(err)
-    res.send(err);
+    res.send({error: err});
   })
 })
 

@@ -8,6 +8,7 @@
   --mainColor: #4D6179;
   --mainHoverColor: #607793;
   --blackColor: #222222;
+  --errorColor: #d64541;
 }
 
 html {
@@ -76,6 +77,40 @@ html {
 .button--alt:hover, .button--alt:focus {
   background-color: #ffffff;
   color: var(--mainColor);
+}
+
+.button--action {
+  border: 2px solid var(--mainColor);
+  background-color: var(--mainColor);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 10px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.button--action:hover, .button--action:focus {
+  background-color: #ffffff;
+  color: var(--mainColor);
+}
+
+.button--error {
+  border: 2px solid var(--errorColor);
+  background-color: var(--errorColor);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 16px;
+  margin: 10px;
+  font-size: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.button--error:hover, .button--error:focus {
+  background-color: #ffffff;
+  color: var(--errorColor);
 }
 
 .titlePanel {
@@ -211,12 +246,24 @@ html {
   padding: 25px 15px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   border-bottom: 1px solid var(--mainHoverColor);
 }
 
 .offer__Content {
+  flex-grow: 1;
+  width: 80%;
+}
 
+.offer__Actions {
+  width: 20%;
+  padding-left: 25px;
+  margin: 0 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  border-left: 2px solid var(--mainHoverColor);
 }
 
 .offer__Title {
@@ -232,7 +279,7 @@ html {
 }
 
 .offer__Price {
-  font-size: 20px;
+  font-size: 28px;
   font-weight: bold;
   color: var(--mainColor);
   margin: 8px 0;
@@ -240,7 +287,7 @@ html {
 
 .error {
   font-size: 20px;
-  color: #d64541;
+  color: var(--errorColor);
 }
 
 </style>

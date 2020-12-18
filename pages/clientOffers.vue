@@ -5,7 +5,9 @@
       <div class="offer" v-for="offer in offers" :key="offer.offerID">
         <Offer :title="offer.title" :description="offer.description" :price="offer.price"/>
         <div class="offer__Actions">
-          <NuxtLink class="button button--main" :to="{ path: '/editOffer', query: { id: offer.offerID }}">Edytuj</NuxtLink>
+          <NuxtLink class="button button--action" to="/">Wykonawcy</NuxtLink>
+          <NuxtLink class="button button--action" :to="{ path: '/editOffer', query: { id: offer.offerID }}">Edytuj</NuxtLink>
+          <NuxtLink class="button button--action button--error" to="/">Usuń</NuxtLink>
         </div>
       </div>
     </section>

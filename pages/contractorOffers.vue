@@ -2,7 +2,12 @@
   <main class="content">
     <Navbar userType="contractor"/>
     <section class="section">
-      <Offer v-for="offer in offers" :key="offer.offerID" :title="offer.title" :description="offer.description" :price="offer.price"/>
+      <div class="offer" v-for="offer in offers" :key="offer.offerID">
+        <Offer :title="offer.title" :description="offer.description" :price="offer.price"/>
+        <div class="offer__Actions">
+          <NuxtLink class="button button--action" to="/">Prześlij pliki do weryfikacji</NuxtLink>
+        </div>
+      </div>
     </section>
   </main>
 </template>

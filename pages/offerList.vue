@@ -2,7 +2,12 @@
   <main class="content">
     <Navbar :user-type="userType"/>
     <section class="section">
-      <Offer v-for="offer in offers" :key="offer.offerID" :title="offer.title" :description="offer.description" :price="offer.price"/>
+      <div class="offer" v-for="offer in offers" :key="offer.offerID">
+        <Offer :title="offer.title" :description="offer.description" :price="offer.price"/>
+        <div v-if="userType === 'contractor'" class="offer__Actions">
+          <NuxtLink class="button button--action" to="/">Zgłoś chęć wykonania</NuxtLink>
+        </div>
+      </div>
     </section>
   </main>
 </template>

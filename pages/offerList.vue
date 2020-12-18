@@ -29,7 +29,7 @@ export default {
       fetch('/api/offers/list')
         .then(res => res.json())
         .then(data => {
-          this.offers = data.recordset;
+          this.offers = data.success.recordset;
         })
     },
   },

@@ -80,7 +80,3 @@ name: "addOffer",
   }
 }
 </script>
-
-<style scoped>
-
-</style>

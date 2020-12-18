@@ -5,10 +5,10 @@ router.use('/contractor/offers', (req, res) => {
   sql.connect(config).then(() => {
     return sql.query(`SELECT * FROM Offer WHERE contractorID = '${contractorID}'`)
   }).then(result => {
-    res.send(result);
+    res.send({success: result});
   }).catch(err => {
     console.warn(err)
-    res.send(err);
+    res.send({error: err});
   })
 
 })

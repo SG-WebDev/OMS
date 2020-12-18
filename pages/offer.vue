@@ -1,11 +1,8 @@
 <template>
-  <div class="offer">
-    <div class="offer__Content">
-      <div class="offer__Title">{{title}}</div>
-      <div class="offer__Desc">{{description}}</div>
-      <div class="offer__Price">{{price}} zł</div>
-    </div>
-    <div class="offer__Actions"></div>
+  <div class="offer__Content">
+    <div class="offer__Title">{{title}}</div>
+    <div class="offer__Desc">{{description}}</div>
+    <div class="offer__Price">{{price}} zł</div>
   </div>
 </template>
 

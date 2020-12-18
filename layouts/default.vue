@@ -210,6 +210,8 @@ html {
   margin: 15px;
   padding: 25px 15px;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid var(--mainHoverColor);
 }
 

@@ -6,10 +6,10 @@ router.post('/client/login', (req, res) => {
   sql.connect(config).then(() => {
     return sql.query(`SELECT * FROM Client WHERE email = '${email}' AND password = '${password}'`)
   }).then(result => {
-    res.send(result);
+    res.send({success: result});
   }).catch(err => {
     console.warn(err)
-    res.send(err);
+    res.send({error: err});
   })
 })
 

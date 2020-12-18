@@ -2,7 +2,12 @@
   <main class="content">
     <Navbar userType="client"/>
     <section class="section">
-      <Offer v-for="offer in offers" :key="offer.offerID" :title="offer.title" :description="offer.description" :price="offer.price"/>
+      <div class="offer" v-for="offer in offers" :key="offer.offerID">
+        <Offer :title="offer.title" :description="offer.description" :price="offer.price"/>
+        <div class="offer__Actions">
+          <NuxtLink class="button button--main" :to="{ path: '/editOffer', query: { id: offer.offerID }}">Edytuj</NuxtLink>
+        </div>
+      </div>
     </section>
   </main>
 </template>
@@ -32,7 +37,7 @@ export default {
       })
         .then(res => res.json())
         .then(data => {
-          this.offers = data.recordset;
+          this.offers = data.success.recordset;
         })
     },
   },

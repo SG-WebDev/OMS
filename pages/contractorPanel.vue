@@ -51,9 +51,9 @@ export default {
         })
           .then(res => res.json())
           .then(data => {
-            if(data.recordset[0]) {
+            if(data.success.recordset[0]) {
               console.log(data)
-              const contractorID = data.recordset[0].contractorID;
+              const contractorID = data.success.recordset[0].contractorID;
               localStorage.setItem("contractorID" , contractorID);
               localStorage.setItem("userType", "contractor");
               localStorage.setItem("logged", "true");

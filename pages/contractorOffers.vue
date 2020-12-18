@@ -32,7 +32,7 @@ export default {
       })
         .then(res => res.json())
         .then(data => {
-          this.offers = data.recordset;
+          this.offers = data.success.recordset;
         })
     },
   },

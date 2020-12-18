@@ -54,7 +54,11 @@ export default {
             if(data.success.recordset[0]) {
               console.log(data)
               const contractorID = data.success.recordset[0].contractorID;
+              const firstname = data.success.recordset[0].firstname;
+              const lastname = data.success.recordset[0].lastname
               localStorage.setItem("contractorID" , contractorID);
+              localStorage.setItem("firstname" , firstname);
+              localStorage.setItem("lastname" , lastname);
               localStorage.setItem("userType", "contractor");
               localStorage.setItem("logged", "true");
               this.showPanel = true;

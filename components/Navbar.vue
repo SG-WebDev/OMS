@@ -1,5 +1,8 @@
 <template>
   <nav class="nav">
+    <div class="username">
+      Witaj, {{getUsername}}
+    </div>
     <ul class="nav__List">
       <li class="nav__Item">
         <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" :to="panelURL">Twój panel</NuxtLink>
@@ -36,11 +39,18 @@ export default {
     },
     profileURL() {
       return `/${this.userType}Profile`;
+    },
+    getUsername() {
+      let firstname = localStorage.getItem("firstname");
+      let lastname = localStorage.getItem("lastname");
+      return `${firstname} ${lastname}`;
     }
   },
   methods: {
     logout() {
       localStorage.setItem("logged", "false");
+      localStorage.removeItem("firstname");
+      localStorage.removeItem("lastname");
       localStorage.removeItem("clientID");
       localStorage.removeItem("contractorID");
       localStorage.removeItem("userType");
@@ -51,5 +61,10 @@ export default {
 </script>
 
 <style scoped>
-
+.username {
+  color: #ffffff;
+  margin: 15px 10px 25px 10px;
+  font-weight: bold;
+  font-size: 22px;
+}
 </style>

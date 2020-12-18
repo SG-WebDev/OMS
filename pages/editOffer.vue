@@ -34,7 +34,8 @@ export default {
       title: null,
       desc: null,
       price: null,
-      error: null
+      error: null,
+      status: null
     }
   },
   computed: {
@@ -45,7 +46,7 @@ export default {
     },
     getOfferID() {
       return this.$route.query.id;
-    }
+    },
   },
   methods: {
     editOffer() {
@@ -55,6 +56,7 @@ export default {
           title: this.title,
           description: this.desc,
           price: this.price,
+          status: this.status
         }
         fetch('/api/offers/edit', {
           method: "PUT",
@@ -97,6 +99,7 @@ export default {
           this.title = data.success.recordset[0].title;
           this.desc = data.success.recordset[0].description;
           this.price = data.success.recordset[0].price;
+          this.status = data.success.recordset[0].status;
           console.log(data);
         }
         else {

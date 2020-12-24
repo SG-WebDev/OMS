@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     fetchData() {
-      const contractorID = localStorage.getItem("contractorID");
+      const contractorID = sessionStorage.getItem("contractorID");
       const data = {
         contractorID: contractorID
       }

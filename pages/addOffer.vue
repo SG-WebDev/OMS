@@ -39,15 +39,18 @@ name: "addOffer",
   },
   computed: {
     userType() {
-      if(localStorage) {
-        return localStorage.getItem("userType");
+      if(sessionStorage) {
+        return sessionStorage.getItem("userType");
+      }
+      else {
+        alert("Nie można pobrać danych o sesji")
       }
     }
   },
   methods: {
     addOffer() {
       if(this.title && this.desc && this.price) {
-        const clientID = localStorage.getItem("clientID");
+        const clientID = sessionStorage.getItem("clientID");
         const data = {
           clientID: clientID,
           title: this.title,

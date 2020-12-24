@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     fetchData() {
-      const clientID = localStorage.getItem("clientID");
+      const clientID = sessionStorage.getItem("clientID");
       const data = {
         clientID: clientID
       }

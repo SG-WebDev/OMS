@@ -37,5 +37,11 @@ app.use(contractorOffers)
 const clientOffers = require('./client/offers')
 app.use(clientOffers)
 //------------------------------------------
+const contractorRatings = require('./contractor/rating')
+app.use(contractorRatings)
+//------------------------------------------
+const clientRatings = require('./client/rating')
+app.use(clientRatings)
+//------------------------------------------
 
 module.exports = app

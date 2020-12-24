@@ -56,11 +56,11 @@ export default {
               const contractorID = data.success.recordset[0].contractorID;
               const firstname = data.success.recordset[0].firstname;
               const lastname = data.success.recordset[0].lastname
-              localStorage.setItem("contractorID" , contractorID);
-              localStorage.setItem("firstname" , firstname);
-              localStorage.setItem("lastname" , lastname);
-              localStorage.setItem("userType", "contractor");
-              localStorage.setItem("logged", "true");
+              sessionStorage.setItem("contractorID" , contractorID);
+              sessionStorage.setItem("firstname" , firstname);
+              sessionStorage.setItem("lastname" , lastname);
+              sessionStorage.setItem("userType", "contractor");
+              sessionStorage.setItem("logged", "true");
               this.showPanel = true;
             }
             else {
@@ -74,7 +74,7 @@ export default {
     }
   },
   mounted() {
-    let logged = localStorage.getItem("logged");
+    let logged = sessionStorage.getItem("logged");
     if(logged === "true") {
       this.showPanel = true;
     }

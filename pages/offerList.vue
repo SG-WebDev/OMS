@@ -24,8 +24,11 @@ export default {
   },
   computed: {
     userType() {
-      if(localStorage) {
-        return localStorage.getItem("userType");
+      if(sessionStorage) {
+        return sessionStorage.getItem("userType");
+      }
+      else {
+        alert("Nie można pobrać danych o sesji")
       }
     }
   },

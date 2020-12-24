@@ -41,19 +41,14 @@ export default {
       return `/${this.userType}Profile`;
     },
     getUsername() {
-      let firstname = localStorage.getItem("firstname");
-      let lastname = localStorage.getItem("lastname");
+      let firstname = sessionStorage.getItem("firstname");
+      let lastname = sessionStorage.getItem("lastname");
       return `${firstname} ${lastname}`;
     }
   },
   methods: {
     logout() {
-      localStorage.setItem("logged", "false");
-      localStorage.removeItem("firstname");
-      localStorage.removeItem("lastname");
-      localStorage.removeItem("clientID");
-      localStorage.removeItem("contractorID");
-      localStorage.removeItem("userType");
+      sessionStorage.clear();
       this.$router.push({ name: "index" });
     }
   }

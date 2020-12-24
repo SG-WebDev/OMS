@@ -56,11 +56,11 @@ export default {
               const clientID = data.success.recordset[0].clientID;
               const firstname = data.success.recordset[0].firstname;
               const lastname = data.success.recordset[0].lastname;
-              localStorage.setItem("clientID" , clientID);
-              localStorage.setItem("firstname" , firstname);
-              localStorage.setItem("lastname" , lastname);
-              localStorage.setItem("userType", "client");
-              localStorage.setItem("logged", "true");
+              sessionStorage.setItem("clientID" , clientID);
+              sessionStorage.setItem("firstname" , firstname);
+              sessionStorage.setItem("lastname" , lastname);
+              sessionStorage.setItem("userType", "client");
+              sessionStorage.setItem("logged", "true");
               this.showPanel = true;
             }
             else {
@@ -74,7 +74,7 @@ export default {
     }
   },
   mounted() {
-    let logged = localStorage.getItem("logged");
+    let logged = sessionStorage.getItem("logged");
     if(logged === "true") {
       this.showPanel = true;
     }

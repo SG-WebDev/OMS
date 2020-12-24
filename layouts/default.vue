@@ -290,4 +290,24 @@ html {
   color: var(--errorColor);
 }
 
+.rating {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--mainHoverColor);
+}
+
+.rating__Title {
+  font-weight: bold;
+}
+
+.rating__Author {
+  align-self: flex-end;
+}
+
+.rating__AuthorName {
+  font-weight: bold;
+}
+
 </style>

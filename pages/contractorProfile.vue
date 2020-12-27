@@ -10,8 +10,8 @@
           </div>
         </div>
         <div class="rating__Author">
-          <span class="rating__AuthorText"> Autor opinii:</span>
-          <NuxtLink class="rating__AuthorName" to="/index">ID {{rating.clientID}}</NuxtLink>
+          <div class="rating__AuthorText">Autor opinii:</div>
+          <div class="rating__AuthorName">{{rating.Client_firstname}} {{rating.Client_lastname}}</div>
         </div>
       </div>
     </section>
@@ -33,7 +33,7 @@ export default {
       const data = {
         contractorID: contractorID
       }
-      fetch('/api/contractor/ratings', {
+      fetch('/api/rating/list', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -42,6 +42,7 @@ export default {
       })
         .then(res => res.json())
         .then(data => {
+          console.log(data)
           this.ratings = data.success.recordset;
         })
     },

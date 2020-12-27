@@ -7,8 +7,8 @@
       <li class="nav__Item">
         <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" :to="panelURL">Twój panel</NuxtLink>
       </li>
-      <li class="nav__Item">
-        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" :to="profileURL">Twój profil</NuxtLink>
+      <li v-if="userType === 'contractor'" class="nav__Item">
+        <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/contractorProfile">Twój profil</NuxtLink>
       </li>
       <li class="nav__Item">
         <NuxtLink class="nav__ItemLink" active-class="nav__ItemLink--active" to="/offerList">Oferty w serwisie</NuxtLink>
@@ -36,9 +36,6 @@ export default {
   computed: {
     panelURL() {
       return `/${this.userType}Panel`;
-    },
-    profileURL() {
-      return `/${this.userType}Profile`;
     },
     getUsername() {
       let firstname = sessionStorage.getItem("firstname");

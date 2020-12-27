@@ -300,10 +300,12 @@ html {
 
 .rating__Title {
   font-weight: bold;
+  color: var(--mainColor);
 }
 
 .rating__Author {
   align-self: flex-end;
+  text-align: right;
 }
 
 .rating__AuthorName {

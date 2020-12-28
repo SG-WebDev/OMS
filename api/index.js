@@ -22,6 +22,9 @@ app.use(offerProposals)
 const offerProposalsAdd = require('./offer/addProposal')
 app.use(offerProposalsAdd)
 //------------------------------------------
+const offerProposalsAccept = require('./offer/acceptProposal')
+app.use(offerProposalsAccept)
+//------------------------------------------
 const offerView = require('./offer/view')
 app.use(offerView)
 //------------------------------------------

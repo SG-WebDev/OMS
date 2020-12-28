@@ -7,7 +7,7 @@ router.put('/offers/edit', (req, res) => {
   const price = req.body.price;
   const status = req.body.status;
   sql.connect(config).then(() => {
-    return sql.query(`exec editoffer
+    return sql.query(`EXEC editoffer
      @varOfferID='${offerID}',
      @varPrice='${price}',
      @varTitle='${title}',

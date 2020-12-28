@@ -1,6 +1,6 @@
 <template>
   <main class="content">
-    <Navbar userType="contractor"/>
+    <Navbar :user-type="userType"/>
     <section class="section">
       <div class="rating" v-for="rating in ratings" :key="rating.ratingID">
         <div class="rating__Content">
@@ -27,12 +27,32 @@ export default {
       ratings: []
     }
   },
+  computed: {
+    getContractorID() {
+      return this.$route.query.id;
+    },
+    userType() {
+      if(sessionStorage) {
+        return sessionStorage.getItem("userType");
+      }
+      else {
+        alert("Nie można pobrać danych o sesji")
+      }
+    }
+  },
   methods: {
     fetchData() {
-      const contractorID = sessionStorage.getItem("contractorID");
+      let contractorID;
+      if (this.userType === "contractor") {
+        contractorID = sessionStorage.getItem("contractorID")
+      }
+      else {
+        contractorID =  this.getContractorID
+      }
       const data = {
         contractorID: contractorID
       }
+
       fetch('/api/rating/list', {
         method: "POST",
         headers: {

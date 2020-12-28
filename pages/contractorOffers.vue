@@ -5,7 +5,7 @@
       <div class="offer" v-for="offer in offers" :key="offer.offerID">
         <Offer :title="offer.title" :description="offer.description" :price="offer.price"/>
         <div class="offer__Actions">
-          <NuxtLink class="button button--action" to="/">Prześlij pliki do weryfikacji</NuxtLink>
+          <button class="button button--action">Prześlij pliki do weryfikacji</button>
         </div>
       </div>
     </section>

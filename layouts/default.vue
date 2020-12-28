@@ -308,8 +308,25 @@ html {
   text-align: right;
 }
 
+
 .rating__AuthorName {
   font-weight: bold;
 }
 
+.proposal {
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--mainHoverColor);
+}
+
+.proposal__Info {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.proposal__Actions {
+  align-self: flex-end;
+}
 </style>

@@ -4,7 +4,7 @@
     <section class="section">
       <div class="rating" v-for="rating in ratings" :key="rating.ratingID">
         <div class="rating__Content">
-          <div class="rating__Title">Treść opinii:</div>
+          <div class="rating__Title">Oferta "{{rating.title}}":</div>
           <div class="rating__Text">
             {{rating.description}}
           </div>

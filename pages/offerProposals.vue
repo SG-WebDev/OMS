@@ -2,7 +2,10 @@
   <main class="content">
     <Navbar user-type="client"/>
     <section class="section">
-      <span v-if="this.contractors.length === 0">Brak chętnych do podjęcia zlecenia</span>
+      <div v-if="error" class="error">
+        Komunikat błędu: {{error}}
+      </div>
+      <span v-if="this.contractors.length === 0 && !error">Brak chętnych do podjęcia zlecenia</span>
       <div class="proposal" v-for="contractor in contractors">
         <div class="proposal__Info">
           {{contractor.firstname}} {{contractor.lastname}}
@@ -22,6 +25,7 @@ export default {
   data() {
     return {
       contractors: [],
+      error: null
     }
   },
   computed: {
@@ -62,8 +66,15 @@ export default {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
-        this.contractors = data.success.recordset;
+        if(data.success) {
+          this.contractors = data.success.recordset;
+          console.log(data);
+          alert("Zgłosiłeś chęć wykonania zlecenia!");
+        }
+        else {
+          console.log(data);
+          this.error = data.error.originalError.info.message;
+        }
       })
   }
 }

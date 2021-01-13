@@ -2,6 +2,9 @@
   <main class="content">
     <Navbar :user-type="userType"/>
     <section class="section">
+      <div v-if="error" class="error">
+        Komunikat błędu: {{error}}
+      </div>
       <div class="offer" v-for="offer in offers" :key="offer.offerID">
         <Offer :title="offer.title" :description="offer.description" :price="offer.price"/>
         <div v-if="userType === 'contractor'" class="offer__Actions">
@@ -19,7 +22,8 @@ export default {
   components: { Navbar, Offer},
   data() {
     return {
-      offers: []
+      offers: [],
+      error: null,
     }
   },
   computed: {
@@ -54,8 +58,14 @@ export default {
       })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
-          alert("Zgłosiłeś chęć wykonania zlecenia!");
+          if(data.success) {
+            console.log(data);
+            alert("Zgłosiłeś chęć wykonania zlecenia!");
+          }
+          else {
+            console.log(data);
+            this.error = data.error.originalError.info.message;
+          }
         })
     },
   },

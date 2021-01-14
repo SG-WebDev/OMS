@@ -69,7 +69,6 @@ export default {
         if(data.success) {
           this.contractors = data.success.recordset;
           console.log(data);
-          alert("Zgłosiłeś chęć wykonania zlecenia!");
         }
         else {
           console.log(data);

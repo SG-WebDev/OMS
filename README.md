@@ -1,4 +1,5 @@
 # OMS
+Order Management System (OMS) - Nuxt app prepared for study project.
 
 ## Build Setup
 
